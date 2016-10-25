@@ -1,0 +1,27 @@
+<center><h1>Reductor De Urls</h1></center>
+
+<% if @url %>
+<% if @url.errors %>
+<%= @url.errors.full_messages %>
+<% end %>
+<% end %>
+
+
+<br><br>
+
+<form method="post" action="/urls" >
+  Ingresa la URL:
+  <br><br>
+  <input class="url" type="text" name="long_url">
+
+  <br><br>
+  <center><input type ="submit"value="Short_Url"></center>
+</form>
+
+<br><br>
+<p>Urls Generadas: </p>
+<p>ORIGINAL:-------------------SHORT </p>
+<% @urls.each do |url|%>
+<p> <%= "#{url.long_url}" %> <a href='/<%="#{url.short_url}"%>'> <%="#{url.short_url}" %></a> </p>
+<% end %>
+<br><br>
